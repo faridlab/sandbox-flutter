@@ -21,8 +21,11 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppBar appBar = AppBar(title: Text(title));
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: appBar,
       body: Center(child: Text('My Page!')),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
@@ -33,7 +36,7 @@ class MyHomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             Container(
-              height: 90,
+              height: appBar.preferredSize.height + statusBarHeight,
               child: DrawerHeader(
                 child: Text('Drawer Header'),
                 decoration: BoxDecoration(
